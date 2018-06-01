@@ -1,4 +1,4 @@
-'''c
+```c
 #include <stdio.h>
 
 enum matriz {zero, sizeA, sizeB, randA, randB, preencheA, preencheB, AplusB, AminusB, AxB, printA, printB, printC, readtxtA, readtxtB, txtC};
@@ -210,4 +210,4 @@ int main()
         }}while(num<16);
     return 0;
 }
-'''
+```
