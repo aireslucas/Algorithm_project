@@ -1,0 +1,211 @@
+#include <stdio.h>
+
+enum matriz {zero, sizeA, sizeB, randA, randB, preencheA, preencheB, AplusB, AminusB, AxB, printA, printB, printC, readtxtA, readtxtB, txtC};
+
+int linA, colA, linB, colB; //linhas e colunas de A e B
+
+void tamA(){
+    printf("Digite a quantidade de linhas da matriz A: ");
+    scanf("%d", &linA);
+    printf("Digite a quantidade de colunas da matriz A: ");
+    scanf("%d", &colA);
+    printf("A = %dx%d\n\n", linA, colA);
+}
+
+void tamB(){
+    printf("Digite a quantidade de linhas da matriz B: ");
+    scanf("%d", &linB);
+    printf("Digite a quantidade de colunas da matriz B: ");
+    scanf("%d", &colB);
+    printf("B = %dx%d\n\n", linB, colB);
+}
+
+int A[1000][1000], B[1000][1000], C[1000][1000]; //matrizes A e B
+
+void limpaABC (){
+    for(int i=0;i<linA;i++){
+        for(int j=0; j<colA;j++){
+            A[i][j]=0;
+        }
+    }
+    for(int i=0;i<linB;i++){
+        for(int j=0; j<colB;j++){
+            B[i][j]=0;
+        }
+    }
+    for(int i=0;i<linB;i++){
+        for(int j=0; j<colB;j++){
+            C[i][j]=0;
+        }
+    }
+}
+
+void matrizA (){
+    for(int i=0;i<linA;i++){
+        for(int j=0; j<colA;j++){
+            printf("Digite o termo da linha %d e coluna %d: ", i+1, j+1);
+            scanf("%d", &A[i][j]);
+        }
+    }
+    printf("\n");
+}
+
+void matrizB (){
+    for(int i=0;i<linB;i++){
+        for(int j=0; j<colB;j++){
+            printf("Digite o termo da linha %d e coluna %d: ", i+1, j+1);
+            scanf("%d", &B[i][j]);
+        }
+    }
+    printf("\n");
+}
+
+void soma(){
+    if(linA==linB && colA==colB){
+        for(int i=0;i<linA;i++){
+            for(int j=0; j<colA;j++){
+                C[i][j]=A[i][j]+B[i][j];
+            }
+        }
+    }
+    else{
+        printf("Nao eh possivel realizar a operacao.\n\n");
+    }
+}
+
+void subtracao(){
+    if(linA==linB && colA==colB){
+        for(int i=0;i<linA;i++){
+            for(int j=0; j<colA;j++){
+                C[i][j]=A[i][j]-B[i][j];
+            }
+        }
+    }
+    else{
+        printf("Nao eh possivel realizar a operacao.\n\n");
+    }
+}
+
+void multiplicacao(){
+    if(colA==linB){
+        for(int i=0;i<linA;i++){
+            for(int j=0; j<colB;j++){
+                for(int k=0;k<colA;k++){
+                    C[i][j]+=A[i][k]*B[k][j];
+                }
+            }
+        }
+    }
+    else{
+        printf("Nao eh possivel realizar a operacao.\n\n");
+    }
+}
+
+void imprimirA(){
+    printf("A = ");
+    for(int i=0;i<linA;i++){
+        for(int j=0; j<colA;j++){
+            printf("%2d ", A[i][j]);
+
+        }
+        printf("\n    ");
+    }
+    printf("\n");
+}
+
+void imprimirB(){
+    printf("B = ");
+    for(int i=0;i<linB;i++){
+        for(int j=0; j<colB;j++){
+            printf("%2d ", B[i][j]);
+
+        }
+        printf("\n    ");
+    }
+    printf("\n");
+}
+
+void imprimirC(){
+    printf("C = ");
+    for(int i=0;i<linA;i++){
+        for(int j=0; j<colB;j++){
+            printf("%2d ", C[i][j]);
+
+        }
+        printf("\n    ");
+    }
+    printf("\n");
+}
+
+
+int main()
+{   int num;
+    do{
+        printf("PROGRAMA DE MANIPULACAO DE MATRIZES\n"
+               "(1) Definir o tamanho da matriz A\n"
+               "(2) Definir o tamanho da matriz B\n"
+               "(3) Preencher a matriz A com valores aleatorios\n"
+               "(4) Preencher a matriz B com valores aleatorios\n"
+               "(5) Atribuir valores manualmente para os elementos da matriz A\n"
+               "(6) Atribuir valores manualmente para os elementos da matriz B\n"
+               "(7) Calcular A+B\n"
+               "(8) Calcular A-B\n"
+               "(9) Calcular A*B\n"
+               "(10) Imprimir matriz A\n"
+               "(11) Imprimir matriz B\n"
+               "(12) Imprimir matriz C\n"
+               "(13) Ler a matriz A de um arquivo\n"
+               "(14) Ler a matriz B de um arquivo\n"
+               "(15) Escrever a matriz C em um arquivo\n"
+               "(16) Sair\n");
+
+        scanf("%d",&num);
+        printf("\n");
+
+        switch (num) {
+        case sizeA:
+            tamA();
+            break;
+        case sizeB:
+            tamB();
+            break;
+        case randA:
+            break;
+        case randB:
+            break;
+        case preencheA:
+            matrizA();
+            break;
+        case preencheB:
+            matrizB();
+            break;
+        case AplusB:
+            soma();
+            break;
+        case AminusB:
+            subtracao();
+            break;
+        case AxB:
+            multiplicacao();
+            break;
+        case printA:
+            imprimirA();
+            break;
+        case printB:
+            imprimirB();
+            break;
+        case printC:
+            imprimirC();
+            break;
+        case readtxtA:
+            break;
+        case readtxtB:
+            break;
+        case txtC:
+            break;
+        default:
+            break;
+
+        }}while(num<16);
+    return 0;
+}
