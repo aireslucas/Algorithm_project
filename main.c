@@ -5,7 +5,7 @@ enum matriz {zero, sizeA, sizeB, randA, randB, preencheA, preencheB, AplusB, Ami
 
 int main()
 {   int num, linA, colA, linB, colB;
-    float A[20][20], B[20][20], C[20][20];
+    float A[50][50], B[50][50], C[50][50];
     do{
         menu();
 
@@ -14,17 +14,17 @@ int main()
 
         switch (num) {
         case sizeA:
-            printf("Digite a quantidade de linhas da matriz A: ");
+            printf("Digite a quantidade de linhas da matriz A, nao excedendo 50: ");
             scanf("%d", &linA);
-            printf("Digite a quantidade de colunas da matriz A: ");
+            printf("Digite a quantidade de colunas da matriz A, nao excedendo 50: ");
             scanf("%d", &colA);
             printf("A = %dx%d\n\n", linA, colA);
             break;
 
         case sizeB:
-            printf("Digite a quantidade de linhas da matriz B: ");
+            printf("Digite a quantidade de linhas da matriz B, nao excedendo 50: ");
             scanf("%d", &linB);
-            printf("Digite a quantidade de colunas da matriz B: ");
+            printf("Digite a quantidade de colunas da matriz B, nao excedendo 50: ");
             scanf("%d", &colB);
             printf("B = %dx%d\n\n", linB, colB);
             break;

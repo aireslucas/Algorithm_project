@@ -20,13 +20,14 @@ void menu (void){
            "(13) Ler a matriz A de um arquivo\n"
            "(14) Ler a matriz B de um arquivo\n"
            "(15) Escrever a matriz C em um arquivo\n"
-           "(16) Sair\n");
+           "(16) Sair\n"
+           "Digite sua operacao: ");
 }
 
-void matrizrand (float A[20][20], int lin, int col){
+void matrizrand (float A[50][50], int lin, int col){
     int x,y;
     srand(time(0));
-    printf("Digite a faixa dos numeros aleatorios (x,y) para a matriz\n");
+    printf("Digite a faixa de valores aleatorios [x,y]\n");
     printf("x: ");
     scanf("%d", &x);
     printf("y: ");
@@ -38,7 +39,7 @@ void matrizrand (float A[20][20], int lin, int col){
     }
 }
 
-void matriz (float A[20][20], int lin, int col){
+void matriz (float A[50][50], int lin, int col){
     for(int i=0;i<lin;i++){
         for(int j=0; j<col;j++){
             printf("Digite o termo da linha %d e coluna %d: ", i+1, j+1);
@@ -48,7 +49,7 @@ void matriz (float A[20][20], int lin, int col){
     printf("\n");
 }
 
-void soma(float A[20][20], int linA, int colA,float B[20][20], int linB, int colB, float C[20][20]){
+void soma(float A[50][50], int linA, int colA,float B[50][50], int linB, int colB, float C[50][50]){
     if(linA==linB && colA==colB){
         for(int i=0;i<linA;i++){
             for(int j=0; j<colA;j++){
@@ -61,7 +62,7 @@ void soma(float A[20][20], int linA, int colA,float B[20][20], int linB, int col
     }
 }
 
-void subtracao(float A[20][20], int linA, int colA,float B[20][20], int linB, int colB, float C[20][20]){
+void subtracao(float A[50][50], int linA, int colA,float B[50][50], int linB, int colB, float C[50][50]){
     if(linA==linB && colA==colB){
         for(int i=0;i<linA;i++){
             for(int j=0; j<colA;j++){
@@ -74,7 +75,7 @@ void subtracao(float A[20][20], int linA, int colA,float B[20][20], int linB, in
     }
 }
 
-void multiplicacao(float A[20][20], int linA, int colA,float B[20][20], int linB, int colB, float C[20][20]){
+void multiplicacao(float A[50][50], int linA, int colA,float B[50][50], int linB, int colB, float C[50][50]){
     if(colA==linB){
         for(int i=0;i<linA;i++){
             for(int j=0; j<colB;j++){
@@ -89,7 +90,7 @@ void multiplicacao(float A[20][20], int linA, int colA,float B[20][20], int linB
     }
 }
 
-void printmatriz(float A[20][20], int lin, int col){
+void printmatriz(float A[50][50], int lin, int col){
     printf("A = ");
     for(int i=0;i<lin;i++){
         for(int j=0; j<col;j++){
